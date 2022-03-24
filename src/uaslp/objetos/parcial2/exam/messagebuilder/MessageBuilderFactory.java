@@ -1,17 +1,18 @@
 package uaslp.objetos.parcial2.exam.messagebuilder;
-import uaslp.objetos.parcial2.exam.exporters.ExporterType;
+import uaslp.objetos.parcial2.exam.exporters.ExporterFactory;
 
 
 public class MessageBuilderFactory extends MessageBuilder{
 
-    private MessageType messageType;
-    private static MessageBuilder messageBuilder;
-    private String m;
-
-
 
     public static MessageBuilder getMessageBuilder(MessageType messageType){
-        return null;
+        return new MessageBuilder() {
+            @Override
+            protected String getDescription() {
+                final String name = messageType.name();
+                return name;
+            }
+        };
     }
 
 
